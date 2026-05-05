@@ -18,13 +18,13 @@ func Init() (*DB, error) {
 		return nil, err
 	}
 
-	_, err = os.Stat(cfg.path)
+	_, err = os.Stat(cfg.Path)
 
 	if err != nil && !os.IsNotExist(err) {
 		return nil, fmt.Errorf("failed to check db file: %w", err)
 	}
 
-	db, err := sql.Open("sqlite", cfg.path)
+	db, err := sql.Open("sqlite", cfg.Path)
 	if err != nil {
 		return nil, fmt.Errorf("failed to open db: %w", err)
 	}
