@@ -7,7 +7,7 @@ import (
 )
 
 type DBConfig struct {
-	path string `envconfig:"DB" required:"true"`
+	Path string `envconfig:"TODO_DBFILE" required:"true"`
 }
 
 func NewDBConfig() (*DBConfig, error) {
