@@ -11,6 +11,9 @@ type TaskService struct {
 type TaskRepository interface {
 	Create(task *domain.Task) (int64, error)
 	GetByID(id int64) (*domain.Task, error)
+	GetTasks(search string) ([]domain.Task, error)
+	Update(task *domain.Task) error
+	Delete(id int64) error
 }
 
 func NewTaskService(repo TaskRepository) *TaskService {

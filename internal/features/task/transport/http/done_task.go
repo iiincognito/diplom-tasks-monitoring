@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-func (h *TaskHTTPHandler) GetTask(rw http.ResponseWriter, r *http.Request) {
+func (h *TaskHTTPHandler) DoneTask(rw http.ResponseWriter, r *http.Request) {
 	idStr := r.URL.Query().Get("id")
 	if idStr == "" {
 		rw.Header().Set("Content-Type", "application/json")
@@ -24,9 +24,9 @@ func (h *TaskHTTPHandler) GetTask(rw http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Printf("DEBUG GetTask id: %d\n", id)
-	resp, _ := h.taskService.GetTask(id)
-	fmt.Printf("DEBUG GetTask response: %+v\n", resp)
+	fmt.Printf("DEBUG DoneTask id: %d\n", id)
+	resp, _ := h.taskService.DoneTask(id)
+	fmt.Printf("DEBUG DoneTask response: %+v\n", resp)
 
 	rw.Header().Set("Content-Type", "application/json")
 	if resp.Error != "" {
