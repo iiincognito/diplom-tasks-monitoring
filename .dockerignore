@@ -1,0 +1,15 @@
+# Исключить из контекста сборки
+.git
+.github
+*.db
+*.db-journal
+data/
+scheduler-server
+tests/
+README.md
+DOCKER.md
+Makefile
+docker-compose.yml
+Dockerfile
+.golangci.yml
+.editorconfig
